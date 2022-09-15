@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.example.wordle.FourLetterWordList.getRandomFourLetterWord
 
 
@@ -58,6 +59,8 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+
           guessButton.setOnClickListener {
               counter++
               wordToGuess = getRandomFourLetterWord()
@@ -88,16 +91,22 @@ class MainActivity : AppCompatActivity() {
                               if (answer2.text != "OOOO") {
                                   revealAnswer.text = wordToGuess.toString()
                                   revealAnswer.visibility = View.VISIBLE
+                                  guessButton.isEnabled = false
+                                  guessButton.isClickable = false
                               }
                               else {
                                   revealAnswer.text = wordToGuess
                                   revealAnswer.visibility = View.VISIBLE
+                                  guessButton.isEnabled = false
+                                  guessButton.isClickable = false
                               }
                           }
                       }
                       else {
                           revealAnswer.text = wordToGuess
                           revealAnswer.visibility = View.VISIBLE
+                          guessButton.isEnabled = false
+                          guessButton.isClickable = false
                       }
                   }
               }
@@ -105,6 +114,8 @@ class MainActivity : AppCompatActivity() {
               {
                   revealAnswer.text = wordToGuess.toString()
                   revealAnswer.visibility = View.VISIBLE
+                  guessButton.isEnabled = false
+                  guessButton.isClickable = false
               }
           }
       }
